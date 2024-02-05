@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { navLinks } from '../../constants/navLinks';
 import Button from '../Button';
 import { IoCloseOutline, IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
