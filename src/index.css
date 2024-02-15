@@ -41,6 +41,26 @@ body, html, #root{
   @apply dark:bg-secondary/10
 }
 
+.three-line-text-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.two-line-text-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.single-line-text-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 @keyframes slide {
   0%, 100% {
     transform: translateX(-100%);

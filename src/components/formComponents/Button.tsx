@@ -6,12 +6,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   children?: ReactNode;
   className?: string;
+  loading?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'default',
   children,
   className = '',
+  loading = false,
   ...props
 }) => {
   const variants = {
@@ -32,9 +34,15 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       {...props}
-      className={` ${activeVariant} ${className} h-10 rounded text-sm font-semibold px-3`}
+      disabled={loading || props.disabled}
+      className={` ${activeVariant} ${className} relative h-10 rounded text-sm font-semibold px-3`}
     >
-      {children}
+      {loading && (
+        <span className='absolute -translate-x-1/2 left-1/2 top-1/2 -translate-y-1/2'>
+          <div className='inline-block w-4 h-4 border-2 border-t-2 border-t-white border-gray-200 rounded-full animate-spin'></div>
+        </span>
+      )}
+      <span className={loading ? 'opacity-0' : 'opacity-100'}>{children}</span>
     </button>
   );
 };
