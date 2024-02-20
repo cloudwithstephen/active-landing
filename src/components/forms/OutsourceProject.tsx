@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -19,6 +18,12 @@ import {
   outsourceProjectFormSchema,
 } from '../../constants/validators/Outsource.validator';
 import useOutsource from '../../hooks/useOutsource';
+import { Popover, PopoverContent, PopoverTrigger } from '../shadcn/ui/popover';
+import { cn } from '../../lib/utils';
+import { Calendar } from '../shadcn/ui/calendar';
+import { format } from 'date-fns';
+import { CalendarIcon } from 'lucide-react';
+import { Button as ShadcnButton } from '../../components/shadcn/ui/button';
 
 export default function OutsourceProjectForm() {
   const form = useForm<OutsourceProjectFormData>({
@@ -29,13 +34,11 @@ export default function OutsourceProjectForm() {
   const { handleSubmit, loading } = useOutsource(form.getValues());
 
   function onSubmit() {
-    console.log('submitted');
-
     handleSubmit().then(() => {
       form.reset();
 
-      form.setValue('projectBudgetMax', 0);
-      form.setValue('projectBudgetMin', 0);
+      // form.setValue('projectBudgetMax', 0);
+      // form.setValue('projectBudgetMin', 0);
     });
   }
 
@@ -95,15 +98,14 @@ export default function OutsourceProjectForm() {
             </div>
 
             <div className='xmobile:col-span-2'>
-              <FormLabel>Project Details</FormLabel>
+              {/* <FormLabel>Project Details</FormLabel> */}
 
-              <div className='mt-3 grid grid-cols-1 gap-6 xmobile:gap-y-5 mobile:gap-y-8'>
-                <FormField
+              <div className=' grid grid-cols-1 gap-6 xmobile:gap-y-5 mobile:gap-y-8'>
+                {/* <FormField
                   control={form.control}
                   name='projectName'
                   render={({ field }) => (
                     <FormItem>
-                      {/* <FormLabel>Username</FormLabel> */}
                       <FormControl>
                         <Input placeholder='Project Name' {...field} />
                       </FormControl>
@@ -111,22 +113,49 @@ export default function OutsourceProjectForm() {
                       <FormMessage />
                     </FormItem>
                   )}
-                />
+                /> */}
 
                 <FormField
                   control={form.control}
                   name='projectDate'
                   render={({ field }) => (
-                    <FormItem>
-                      {/* <FormLabel>Username</FormLabel> */}
-                      <FormControl>
-                        <Input
-                          type='date'
-                          placeholder='Expected start date'
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormDescription>Expected start date</FormDescription>
+                    <FormItem className='flex flex-col'>
+                      <FormLabel className='dark:opacity-80'>
+                        Expected start date{' '}
+                      </FormLabel>
+                      <Popover>
+                        <PopoverTrigger asChild>
+                          <FormControl>
+                            <ShadcnButton
+                              variant={'outline'}
+                              className={cn(
+                                'w-full pl-3 text-left font-normal justify-start bg-pale-sky focus:ring-1 focus:ring-primary focus:ring-offset-1 dark:border-gray-500 dark:bg-secondary/10',
+                                !field.value && 'text-muted-foreground'
+                              )}
+                            >
+                              {field.value ? (
+                                format(field.value, 'PPP')
+                              ) : (
+                                <span className='dark:opacity-80'>
+                                  Pick a date
+                                </span>
+                              )}
+                              <CalendarIcon className='ml-auto h-4 w-4 opacity-50' />
+                            </ShadcnButton>
+                          </FormControl>
+                        </PopoverTrigger>
+                        <PopoverContent className='w-auto p-0' align='start'>
+                          <Calendar
+                            mode='single'
+                            selected={field.value}
+                            onSelect={field.onChange}
+                            disabled={(date) =>
+                              date < new Date() || date < new Date('1900-01-01')
+                            }
+                            initialFocus
+                          />
+                        </PopoverContent>
+                      </Popover>
 
                       <FormMessage />
                     </FormItem>
@@ -134,14 +163,13 @@ export default function OutsourceProjectForm() {
                 />
               </div>
 
-              <div className='mt-6 xmobile:mt-y-5 mobile:mt-y-8 flex items-center justify-between space-x-3 lgMobile:space-x-5'>
+              {/* <div className='mt-6 xmobile:mt-y-5 mobile:mt-y-8 flex items-center justify-between space-x-3 lgMobile:space-x-5'>
                 <div className='flex-1'>
                   <FormField
                     control={form.control}
                     name='projectBudgetMin'
                     render={({ field }) => (
                       <FormItem>
-                        {/* <FormLabel>Username</FormLabel> */}
                         <FormControl>
                           <Input
                             type='number'
@@ -179,7 +207,7 @@ export default function OutsourceProjectForm() {
                     )}
                   />
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className='xmobile:col-span-2'>

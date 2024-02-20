@@ -14,28 +14,42 @@ export default function useOutsource(data: OutsourceProjectFormData) {
     params.append('entry.862771815', data.name);
     params.append('entry.672132728', data.telephoneNumber);
     params.append('entry.1903578400', data.email);
-    params.append('entry.2026184121', data.projectName);
-    params.append('entry.1090555749', String(data.projectBudgetMin));
-    params.append('entry.1959699782', String(data.projectBudgetMax));
+    // params.append('entry.2026184121', data.projectName);
+    // params.append('entry.1090555749', String(data.projectBudgetMin));
+    // params.append('entry.1959699782', String(data.projectBudgetMax));
     params.append('entry.2040870261', data.projectDescription);
 
     if (data.projectDate) {
-      const [year, month, day] = data.projectDate.split('-');
+      // Parse the projectDate into a Date object
+      const projectDate = new Date(data.projectDate);
+
+      // Use Intl.DateTimeFormat to format the date components
+      const year = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(
+        projectDate
+      );
+      const month = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(
+        projectDate
+      );
+      const day = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(
+        projectDate
+      );
+
+      // Append the formatted date components
       params.append('entry.553132009_year', year);
       params.append('entry.553132009_month', month);
       params.append('entry.553132009_day', day);
     }
 
     try {
-      const res = await fetch(formUrl, {
+      await fetch(formUrl, {
         method: 'POST',
         mode: 'no-cors',
         body: params,
       });
 
-      console.log(res.status);
+      // console.log(res.status);
 
-      console.log('Form submitted successfully');
+      // console.log('Form submitted successfully');
     } catch (error) {
       console.log(error);
 

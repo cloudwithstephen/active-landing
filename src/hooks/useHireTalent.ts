@@ -15,8 +15,8 @@ export default function useHireTalent(data: HireTalentFormData) {
     params.append('entry.1903578400', data.email);
     params.append('entry.874383580', data.telephoneNumber);
     params.append('entry.1152582678', data.companyName);
-    params.append('entry.583046088', String(data.projectBudgetMin));
-    params.append('entry.2016911606', String(data.projectBudgetMax));
+    // params.append('entry.583046088', String(data.projectBudgetMin));
+    // params.append('entry.2016911606', String(data.projectBudgetMax));
     params.append('entry.2040870261', data.jobDescription);
 
     // For multi-value fields like `role` and `technologyStack`, append each selected value separately

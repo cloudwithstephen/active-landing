@@ -9,20 +9,20 @@ export const hireTalentFormSchema = z.object({
   companyName: z.string().min(1, 'Company name is required.'),
   role: z.array(z.string()).min(1, 'Role is required.'),
   technologyStack: z.array(z.string()).min(1, 'Technology stack is required.'),
-  projectBudgetMin: z
-    .string()
-    .transform((val) => (!val ? 0 : parseFloat(val)))
-    .refine(
-      (val) => !isNaN(val) && val >= 0,
-      'Minimum budget must be a positive number.'
-    ),
-  projectBudgetMax: z
-    .string()
-    .transform((val) => (!val ? 0 : parseFloat(val)))
-    .refine(
-      (val) => !isNaN(val) && val >= 0,
-      'Maximum budget must be a positive number.'
-    ),
+  // projectBudgetMin: z
+  //   .string()
+  //   .transform((val) => (!val ? 0 : parseFloat(val)))
+  //   .refine(
+  //     (val) => !isNaN(val) && val >= 0,
+  //     'Minimum budget must be a positive number.'
+  //   ),
+  // projectBudgetMax: z
+  //   .string()
+  //   .transform((val) => (!val ? 0 : parseFloat(val)))
+  //   .refine(
+  //     (val) => !isNaN(val) && val >= 0,
+  //     'Maximum budget must be a positive number.'
+  //   ),
   jobDescription: z.string().min(1, 'Job description is required.'),
 });
 
@@ -35,7 +35,7 @@ export const defaultHireTalentForm = {
   companyName: '',
   role: [],
   technologyStack: [],
-  projectBudgetMin: undefined,
-  projectBudgetMax: undefined,
+  // projectBudgetMin: undefined,
+  // projectBudgetMax: undefined,
   jobDescription: '',
 };

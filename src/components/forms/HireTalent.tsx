@@ -5,7 +5,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '../shadcn/ui/form';
 import { Input } from '../shadcn/ui/input';
@@ -46,8 +45,6 @@ export default function HireTalentForm() {
     handleSubmit().then(() => {
       // Reset the form fields to initial values
       form.reset();
-      form.setValue('projectBudgetMax', 0);
-      form.setValue('projectBudgetMin', 0);
       // Clear selected tech stacks and roles
       setSelectedTechStacks(new Set());
       setSelectedRoles(new Set());
@@ -336,7 +333,7 @@ export default function HireTalentForm() {
               )}
             </div>
 
-            <div className='xmobile:col-span-2'>
+            {/* <div className='xmobile:col-span-2'>
               <FormLabel>Project Budget</FormLabel>
               <div className='mt-4 flex items-center justify-between space-x-3 lgMobile:space-x-5'>
                 <div className='flex-1'>
@@ -345,7 +342,6 @@ export default function HireTalentForm() {
                     name='projectBudgetMin'
                     render={({ field }) => (
                       <FormItem>
-                        {/* <FormLabel>Username</FormLabel> */}
                         <FormControl>
                           <Input
                             type='number'
@@ -384,7 +380,7 @@ export default function HireTalentForm() {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className='xmobile:col-span-2'>
               <FormField
