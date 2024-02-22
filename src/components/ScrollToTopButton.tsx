@@ -30,17 +30,17 @@ const ScrollToTopButton: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <div className='fixed bottom-5 right-5'>
       {isVisible && (
         <Button
           onClick={scrollToTop}
-          className='fixed bottom-5 right-5 bg-secondary hover:bg-secondary dark:bg-primary dark:hover:bg-primary text-black dark:text-white font-light !p-2 z-50'
+          className=' bg-secondary hover:bg-secondary dark:bg-primary dark:hover:bg-primary text-black dark:text-white font-light !p-2 z-50'
           aria-label='Scroll to top'
         >
           <FiArrowUp className='text-2xl' />
         </Button>
       )}
-    </>
+    </div>
   );
 };
 

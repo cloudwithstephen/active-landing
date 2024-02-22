@@ -55,7 +55,12 @@ export default function HeroSection() {
         </div>
 
         <div className='flex justify-between items-center max-w-[50rem] mx-auto w-full'>
-          {[...Array(3)].map((_, idx) => {
+          <img
+            src='/Images/companies/buzzme.png'
+            alt='Active Tech Customers/Business'
+            className='w-20 xmd:w-28 md:w-36 bg-dark dark:bg-transparent'
+          />
+          {[...Array(2)].map((_, idx) => {
             return (
               <img
                 key={idx}
