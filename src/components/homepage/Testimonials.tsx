@@ -2,13 +2,12 @@ import { testimonials } from '../../constants/testimonials';
 
 export default function Testimonials() {
   return (
-    <div className='general-padding py-12 md:py-20'>
+    <div className='general-padding py-12 md:py-20' id='testimonials'>
       <div className='max-w-[30rem] md:mx-auto md:text-center'>
-        <h3 className='section-heading'>What Our Clients Say</h3>
+        <h3 className='section-heading'>What Our Clients are Saying...</h3>
 
         <p className='max-xxmd:text-sm mt-6'>
-          Curious about the experiences of our satisfied clients? Here's what
-          they have to say
+        See how we’ve helped businesses thrive. Read our clients' testimonials to learn about their success with our team...
         </p>
       </div>
 
@@ -21,13 +20,11 @@ export default function Testimonials() {
                 key={idx}
                 className='rounded-2xl bg-grey   dark:bg-secondary/10 px-3 py-4 relative'
               >
-                {idx === 0 && (
                   <img
                     src='/Images/message.png'
                     alt='Active Tech Vectors'
                     className='w-12 md:w-14 absolute top-0 -translate-y-1/2 left-4'
                   />
-                )}
                 <div className='mt-5 mobile:mt-8'>
                   {testimony.testimony.map((item) => {
                     return <div className='text-sm mb-2'>{item}</div>;

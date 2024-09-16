@@ -22,9 +22,9 @@ export default function WhyChooseSection() {
                 alt='Active Tech vectors'
                 className='w-16 md:w-20 smLaptop:w-24 -mt-12 md:-mt-16'
               />
-
+ <h6 className='mt-2 card-heading'>{item.title}</h6>
               <p className='mt-4 max-md:text-sm'>{item.desc}</p>
-              <h6 className='mt-2 card-heading'>{item.title}</h6>
+             
             </div>
           );
         })}

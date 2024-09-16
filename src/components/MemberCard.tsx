@@ -21,7 +21,7 @@ export default function MemberCard({ member }: { member?: MemberProps }) {
           {member?.skills.join(' | ')}
         </div>
       </div>
-      <div className='flex space-x-5 items-center mt-3'>
+      {/* <div className='flex space-x-5 items-center mt-3'>
         {member?.github && (
           <Link
             to={`https://github.com/${member?.github}`}
@@ -51,7 +51,7 @@ export default function MemberCard({ member }: { member?: MemberProps }) {
             <FaLinkedin className='text-2xl cursor-pointer' />
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

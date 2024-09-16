@@ -16,7 +16,7 @@ export default function Homepage() {
       <WhyChooseSection />
       <HiringMadeEasySection />
       <MeetOurTeamSection />
-      <TrustedBySection />
+      {/* <TrustedBySection /> */}
       <AgileProcessSection />
       <Testimonials />
       <ElevateProjects />

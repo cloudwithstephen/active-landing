@@ -22,48 +22,21 @@ export default function MeetOurTeamSection() {
       </div>
 
       <div className='mt-12 md:flex grid grid-cols-1  w-full items-center gap-8 md:gap-2 laptop:gap-4 max-w-[70rem] mx-auto'>
-        <div className='flex overflow-x-scroll xmd:grid xmd:grid-cols-3 gap-2 laptop:gap-4 flex-1 max-xmd:px-1'>
-          {membersList.slice(0, 3).map((member, idx) => {
+        <div className='flex xmd:grid xmd:grid-cols-3 gap-2 laptop:gap-4 flex-1 max-xmd:px-1'>
+          {membersList.slice(0, 6).map((member, idx) => {
             return <MemberCard member={member} key={idx} />;
           })}
 
-          <div className='rounded-2xl w-full max-xmd:min-w-[13rem] bg-grey dark:bg-secondary/10 px-3 py-4 h-full xmd:h-fit'>
-            <div className='h-fit w-fit mx-auto rounded-xl my-7  rotate-45 flex justify-center'>
-              <img
-                src={`/Images/members/profile.png`}
-                alt={`Active Tech`}
-                className='h-[9.5rem] xlaptop:h-[12rem] w-[9.5rem] xlaptop:w-[12rem] object-cover -rotate-45'
-              />
-            </div>
-
-            <div className='mt-4'>
-              <div className='md:text-lg font-semibold'>Nelda S. Carter</div>
-              <div className='max-laptop:text-sm my-2 opacity-50'>
-                Expertise
-              </div>
-              <div className='text-sm'>DevOps | JavaScript | Git | Node.js</div>
-            </div>
-            <div className='flex space-x-5 items-center mt-3'>
-              <FaGithub className='text-2xl cursor-pointer' />
-              <SiGmail className='text-2xl cursor-pointer' />
-              <FaLinkedin className='text-2xl cursor-pointer' />
-            </div>
-          </div>
-        </div>
-
-        <div className='bg-black dark:bg-gray-400 rounded-2xl p-5 flex flex-col text-center items-center justify-center w-full mx-auto max-w-[30rem] md:max-w-[15rem] laptop:max-w-[20rem]'>
-          <img src='/favicon.png' alt='Active Tech Logo' className='w-16' />
-
-          <p className='text-sm mt-5 text-white max-laptop:text-sm dark:text-black'>
-            View More Of Our Team Members And Select Based On Which Member Fits
-            Your Project
-          </p>
-
-          <Link to={'/members'}>
-            <Button className='mt-4 font-bold'>View Members</Button>
+<div className='flex xmd:grid xmd:grid-cols-3 gap-2 laptop:gap-4 flex-1 max-xmd:px-1'>
+        <Link to={'/members'}>
+            <Button className='mt-4 font-bold'>See more</Button>
           </Link>
         </div>
+        </div>
+       
+        
       </div>
+     
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function ElevateProjects() {
 
           <Link className='mt-6' to={'/hire-a-talent'}>
             <Button className=' mx-auto lgMobile:!text-base h-12 px-5 lgMobile:px-8 font-bold'>
-              Hire A Talent Now
+              Get Started
             </Button>
           </Link>
         </div>

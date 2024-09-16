@@ -159,7 +159,7 @@ export default function HireTalentForm() {
               )}
             />
 
-            <div>
+            {/* <div>
               <Popover>
                 <PopoverTrigger asChild>
                   <ShadcnButton
@@ -244,9 +244,9 @@ export default function HireTalentForm() {
                   {Array.from(selectedRoles).join(', ')}
                 </div>
               )}
-            </div>
+            </div> */}
 
-            <div>
+            {/* <div>
               <Popover>
                 <PopoverTrigger asChild>
                   <ShadcnButton
@@ -331,7 +331,7 @@ export default function HireTalentForm() {
                   {Array.from(selectedTechStacks).join(', ')}
                 </div>
               )}
-            </div>
+            </div> */}
 
             {/* <div className='xmobile:col-span-2'>
               <FormLabel>Project Budget</FormLabel>
@@ -392,7 +392,7 @@ export default function HireTalentForm() {
                     <FormControl>
                       <Textarea
                         rows={7}
-                        placeholder='Job Description'
+                        placeholder='Project Description'
                         {...field}
                       />
                     </FormControl>

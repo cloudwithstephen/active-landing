@@ -13,14 +13,13 @@ export default function AgileProcessSection() {
     theme === 'dark' ? '/Images/darkLogo.png' : '/Images/lightLogo.png';
   return (
     <div id='agile-process-section' className='general-padding py-12 md:py-20'>
-      <div className='max-w-[50rem]'>
-        <h3 className='section-heading'>Agile Software Development Process</h3>
+      <div className='max-w-[100rem]'>
+        <h3 className='section-heading'>Our Methodology</h3>
+        <h4 className='max-xxmd:text-sm'>We're Lean and Agile</h4>
 
         <p className='mt-6 max-xxmd:text-sm'>
-          We embrace the Agile software development methodology to deliver
-          high-quality solutions that meet our clients' evolving needs. Our
-          commitment to Agile principles allows us to create innovative software
-          with flexibility, collaboration, and a customer-centric focus.
+        We embrace the Lean methodology to deliver maximum value with minimal waste, focusing on rapid iterations and continuous improvement. Our Agile approach ensures flexibility and collaboration, allowing us to adapt quickly to your needs and deliver high-quality solutions efficiently.
+         By combining these methodologies, we streamline the development process, enhance communication, and drive successful outcomes for your projects.
         </p>
       </div>
 
