@@ -29,18 +29,18 @@ jobs:
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }} # 🔥 USE PASSWORD
+          password: ${{ secrets.SFTP_PASSWORD }} # 🔥 Hostinger requires password auth
           port: ${{ secrets.SFTP_PORT }}
           script: |
             rm -rf ${{ secrets.SFTP_REMOTE_DIR }}/*
             mkdir -p ${{ secrets.SFTP_REMOTE_DIR }}
 
-      - name: Upload build via SFTP
+      - name: Upload build files via SFTP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }} # 🔥 USE PASSWORD
+          password: ${{ secrets.SFTP_PASSWORD }} # 🔥 password instead of key
           port: ${{ secrets.SFTP_PORT }}
           source: "build/*"
           target: ${{ secrets.SFTP_REMOTE_DIR }}
