@@ -19,4 +19,8 @@ export const navLinks = [
     label: 'Vision to shipping',
     selector: 'agile-process-section',
   },
+  {
+    label: 'Blog',
+    href: 'https://blog.activetechconsult.com',
+  },
 ];

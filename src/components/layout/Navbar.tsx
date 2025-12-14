@@ -40,10 +40,23 @@ export default function Navbar() {
 
       <div className='hidden md:flex items-center space-x-4 smLaptop:space-x-6 max-smLaptop:text-xs max-desktop:text-sm desktop:space-x-8'>
         {navLinks.map((link, idx) => {
+          if ((link as any).href) {
+            return (
+              <a
+                href={(link as any).href}
+                target='_blank'
+                rel='noopener noreferrer'
+                key={idx}
+                className='whitespace-nowrap cursor-pointer'
+              >
+                {link.label}
+              </a>
+            );
+          }
+
           return (
             <Link
-              to={`/#${link.selector}`}
-              // onClick={() => scrollToSectionWithOffset(link.selector)}
+              to={`/#${(link as any).selector}`}
               key={idx}
               className='whitespace-nowrap cursor-pointer'
             >
@@ -116,9 +129,24 @@ function MobileNav({
         </div>
         <div className='grid gap-5 place-content-center font-semibold max-mobile:text-sm text-center'>
           {navLinks.map((link, idx) => {
+            if ((link as any).href) {
+              return (
+                <a
+                  href={(link as any).href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  onClick={toggleMenu}
+                  key={idx}
+                  className='whitespace-nowrap'
+                >
+                  {link.label}
+                </a>
+              );
+            }
+
             return (
               <Link
-                to={`/#${link.selector}`}
+                to={`/#${(link as any).selector}`}
                 onClick={toggleMenu}
                 key={idx}
                 className='whitespace-nowrap'
