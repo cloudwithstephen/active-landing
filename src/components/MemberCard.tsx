@@ -1,24 +1,24 @@
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { SiGmail } from 'react-icons/si';
-import { MemberProps } from '../constants/member';
-import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { MemberProps } from "../constants/member";
+import { Link } from "react-router-dom";
 
 export default function MemberCard({ member }: { member?: MemberProps }) {
   return (
-    <div className='rounded-2xl w-full max-xmd:min-w-[13rem] bg-grey dark:bg-secondary/10 px-3 py-4 h-full xmd:h-fit'>
-      <div className='h-fit w-fit mx-auto rounded-xl my-7  rotate-45 flex justify-center'>
+    <div className="rounded-2xl w-full max-xmd:min-w-[13rem] bg-grey dark:bg-secondary/10 px-3 py-4 h-full xmd:h-fit">
+      <div className="h-fit w-fit mx-auto rounded-xl my-7 rotate-45 flex justify-center">
         <img
-          src={`/Images/members/${member?.imageUrl || 'profile.png'}`}
+          src={`/Images/members/${member?.imageUrl || "profile.png"}`}
           alt={`${member?.name} in Active Tech`}
-          className='h-[9.5rem] xlaptop:h-[12rem] w-[9.5rem] xlaptop:w-[12rem] object-cover -rotate-45'
+          className="h-24 md:h-[9.5rem] xlaptop:h-[12rem] w-24 md:w-[9.5rem] xlaptop:w-[12rem] object-cover -rotate-45"
         />
       </div>
 
-      <div className='mt-4'>
-        <div className='md:text-lg font-semibold'>{member?.name}</div>
-        <div className='max-laptop:text-sm my-1 opacity-50'>Expertise</div>
-        <div className='text-sm flex items-center'>
-          {member?.skills.join(' | ')}
+      <div className="mt-4">
+        <div className="md:text-lg font-semibold">{member?.name}</div>
+        <div className="max-laptop:text-sm my-1 opacity-50">Expertise</div>
+        <div className="text-sm flex items-center">
+          {member?.skills.join(" | ")}
         </div>
       </div>
       {/* <div className='flex space-x-5 items-center mt-3'>

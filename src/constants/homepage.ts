@@ -25,7 +25,7 @@ export const whyChooseActiveTech = [
   {
     darkImgSrc: "/Images/darkBalls.png",
     lightImgSrc: "/Images/lightBalls.png",
-    desc: "Our team comprises seasoned software engineers, boasting industry expertise spanning 5 to 20 years.",
+    desc: "Our team comprises seasoned software engineers, boasting industry expertise spanning 5 to 10 years.",
     title: "Skilled Professionals",
   },
   {
@@ -135,5 +135,13 @@ export const whyChooseAgile = [
   {
     title: "Continuous Improvement",
     desc: "Through regular retrospectives, we actively seek ways to enhance our processes and deliver even greater value to our clients.",
+  },
+  {
+    title: "Transparency & Visibility",
+    desc: "Regular reviews, demos, and clear progress tracking give stakeholders full visibility into project status, priorities, and outcomes at every stage",
+  },
+  {
+    title: "Predictable Delivery",
+    desc: "Time-boxed sprints and clear planning help teams provide more accurate timelines, manage expectations effectively, and deliver consistently.",
   },
 ];
