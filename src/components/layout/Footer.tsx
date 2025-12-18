@@ -7,7 +7,6 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { scrollToSectionWithOffset } from "../../helpers/scrollHelper";
-import { useTheme } from "../../context/theme-provider";
 
 const addresses = [
   {
@@ -35,7 +34,7 @@ const socialLinks = [
   {
     label: "Twitter",
     icon: FaTwitter,
-    to: "https://x.com/ActiveTechCo",
+    to: "https://twitter.com/activetechnologies",
   },
   {
     label: "LinkedIn",
@@ -64,34 +63,8 @@ const services = [
 ];
 
 export default function Footer() {
-  const { theme } = useTheme();
-
-  const resolvedTheme = (() => {
-    if (theme === "system") {
-      return window.matchMedia &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
-    }
-    return theme;
-  })();
-
-  const isBW = resolvedTheme === "bw";
-  const isDark = resolvedTheme === "dark";
-
-  const footerClass = isBW
-    ? "bg-white text-black"
-    : isDark
-    ? "bg-dark text-white"
-    : "bg-white text-gray-900";
-  const logoSrc = isBW
-    ? "/Images/lightLogo.png"
-    : isDark
-    ? "/Images/darkLogo.png"
-    : "/Images/lightLogo.png";
-
   return (
-    <footer className={footerClass}>
+    <footer className="bg-dark dark:bg-secondary/10 text-white">
       {/* Main Footer Content */}
       <div className="general-padding py-16 md:py-24">
         <div className="max-w-7xl mx-auto">
@@ -100,9 +73,9 @@ export default function Footer() {
             <div className="lg:col-span-1">
               <Link to="/" className="inline-block mb-4">
                 <img
-                  src={logoSrc}
+                  src={"/Images/darkLogo.png"}
                   alt="Active Technologies - Software Engineers Nigeria"
-                  className="w-28 sm:w-32 md:w-40 lg:w-48 hover:opacity-80 transition-opacity"
+                  className="w-40 hover:opacity-80 transition-opacity"
                 />
               </Link>
               <p className="text-sm text-gray-400 leading-relaxed mt-4">
