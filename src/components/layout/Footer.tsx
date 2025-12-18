@@ -34,7 +34,7 @@ const socialLinks = [
   {
     label: "Twitter",
     icon: FaTwitter,
-    to: "https://twitter.com/activetechnologies",
+    to: "https://x.com/ActiveTechCo",
   },
   {
     label: "LinkedIn",
