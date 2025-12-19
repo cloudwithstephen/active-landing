@@ -49,7 +49,7 @@ export default function Homepage() {
       <HeroSection />
       <ExploreSection />
       <YouTubeVideoSection
-        videoUrl="https://youtu.be/wylPIguUucQ?si=svNb_ahznxRWGYdg"
+        videoUrl="https://youtu.be/XVDXlmtoEAk?si=lS_G5Cfy2whomHnU"
         title="Watch Our Story"
         description="Discover how we help businesses transform their ideas into thriving enterprises."
       />

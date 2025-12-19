@@ -1,16 +1,16 @@
-import { FaGithub, FaLinkedin } from "react-icons/fa";
-import { SiGmail } from "react-icons/si";
+import { motion } from "framer-motion";
 import { MemberProps } from "../constants/member";
-import { Link } from "react-router-dom";
 
 export default function MemberCard({ member }: { member?: MemberProps }) {
   return (
-    <div className="rounded-2xl w-full max-xmd:min-w-[13rem] bg-grey dark:bg-secondary/10 px-3 py-4 h-full xmd:h-fit">
+    <motion.div className="rounded-2xl w-full max-xmd:min-w-[13rem] bg-grey dark:bg-secondary/10 px-3 py-4 h-full xmd:h-fit">
       <div className="h-fit w-fit mx-auto my-7 flex justify-center">
-        <img
+        <motion.img
           src={`/Images/members/${member?.imageUrl || "profile.png"}`}
           alt={`${member?.name} in Active Tech`}
           className="w-24 md:w-[9.5rem] xlaptop:w-[12rem] aspect-square object-cover rounded-lg"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
         />
       </div>
 
@@ -52,6 +52,6 @@ export default function MemberCard({ member }: { member?: MemberProps }) {
           </Link>
         )}
       </div> */}
-    </div>
+    </motion.div>
   );
 }

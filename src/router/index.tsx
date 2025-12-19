@@ -1,14 +1,15 @@
-import { createBrowserRouter } from 'react-router-dom';
-import SmoothScroll from '../components/layout/SmoothScroll';
-import Homepage from '../pages/Homepage';
-import GeneralLayout from '../components/layout/GeneralLayout';
-import HireATalentPage from '../pages/HireTalent';
-import OutsourceProjectPage from '../pages/OutsourceProject';
-import MembersPage from '../pages/Members';
+import { createBrowserRouter } from "react-router-dom";
+import SmoothScroll from "../components/layout/SmoothScroll";
+import Homepage from "../pages/Homepage";
+import GeneralLayout from "../components/layout/GeneralLayout";
+import HireATalentPage from "../pages/HireTalent";
+import OutsourceProjectPage from "../pages/OutsourceProject";
+import MembersPage from "../pages/Members";
+import ContactPage from "../pages/Contact";
 
 export const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: (
       <SmoothScroll>
         <GeneralLayout />
@@ -16,20 +17,24 @@ export const router = createBrowserRouter([
     ),
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Homepage />,
       },
       {
-        path: '/hire-a-talent',
+        path: "/hire-a-talent",
         element: <HireATalentPage />,
       },
       {
-        path: '/members',
+        path: "/members",
         element: <MembersPage />,
       },
       {
-        path: '/outsource-project',
+        path: "/outsource-project",
         element: <OutsourceProjectPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },
