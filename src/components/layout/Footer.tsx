@@ -29,7 +29,7 @@ const socialLinks = [
   {
     label: "Facebook",
     icon: FaFacebookF,
-    to: "https://facebook.com/activetechnologies",
+    to: " https://www.facebook.com/profile.php?id=100094334157149",
   },
   {
     label: "Twitter",
@@ -60,6 +60,8 @@ const services = [
   "Product Management",
   "UI/UX Design",
   "Project Management",
+  "AI development",
+  "AI Automation",
 ];
 
 export default function Footer() {
