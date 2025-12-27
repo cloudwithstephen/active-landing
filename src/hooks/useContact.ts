@@ -18,10 +18,14 @@ export default function useContact() {
     const templateId = emailjsConfig.contact.templateId;
     const publicKey = emailjsConfig.publicKey;
 
-    if (!serviceId || !templateId || !publicKey || 
-        serviceId === "YOUR_SERVICE_ID_HERE" || 
-        templateId === "YOUR_TEMPLATE_ID_HERE" || 
-        publicKey === "YOUR_PUBLIC_KEY_HERE") {
+    if (
+      !serviceId ||
+      !templateId ||
+      !publicKey ||
+      serviceId === "YOUR_SERVICE_ID_HERE" ||
+      templateId === "YOUR_TEMPLATE_ID_HERE" ||
+      publicKey === "YOUR_PUBLIC_KEY_HERE"
+    ) {
       setError(
         "EmailJS is not configured. Please update the EmailJS credentials in src/config/emailjs.config.ts"
       );

@@ -18,10 +18,14 @@ export default function useHireTalent() {
     const templateId = emailjsConfig.hireTalent.templateId;
     const publicKey = emailjsConfig.publicKey;
 
-    if (!serviceId || !templateId || !publicKey || 
-        serviceId === "YOUR_SERVICE_ID_HERE" || 
-        templateId === "YOUR_TEMPLATE_ID_HERE" || 
-        publicKey === "YOUR_PUBLIC_KEY_HERE") {
+    if (
+      !serviceId ||
+      !templateId ||
+      !publicKey ||
+      serviceId === "service_6ysezz3" ||
+      templateId === "template_nx7qdy9" ||
+      publicKey === "KpvImFqFHX2bAaQDk"
+    ) {
       setError(
         "EmailJS is not configured. Please update the EmailJS credentials in src/config/emailjs.config.ts"
       );
@@ -35,17 +39,13 @@ export default function useHireTalent() {
     });
 
     try {
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          name: formData.name,
-          email: formData.email,
-          telephoneNumber: formData.telephoneNumber,
-          companyName: formData.companyName,
-          jobDescription: formData.jobDescription,
-        }
-      );
+      const response = await emailjs.send(serviceId, templateId, {
+        name: formData.name,
+        email: formData.email,
+        telephoneNumber: formData.telephoneNumber,
+        companyName: formData.companyName,
+        jobDescription: formData.jobDescription,
+      });
 
       if (response.status === 200 || response.text === "OK") {
         setSuccess(true);
@@ -54,7 +54,7 @@ export default function useHireTalent() {
       }
     } catch (error: any) {
       console.error("EmailJS error:", error);
-      
+
       if (error?.text) {
         setError(`Failed to send message: ${error.text}`);
       } else if (error?.message) {
