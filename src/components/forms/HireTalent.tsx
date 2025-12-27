@@ -17,7 +17,7 @@ import {
   hireTalentFormSchema,
 } from "../../constants/validators/HireTalent.validator";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import useHireTalent from "../../hooks/useHireTalent";
 
 export default function HireTalentForm() {
@@ -26,27 +26,12 @@ export default function HireTalentForm() {
     defaultValues: defaultHireTalentForm,
   });
 
-  const [selectedTechStacks, setSelectedTechStacks] = useState<Set<string>>(
-    new Set()
-  );
-  const [selectedRoles, setSelectedRoles] = useState<Set<string>>(new Set());
-
-  useEffect(() => {
-    form.setValue("technologyStack", Array.from(selectedTechStacks));
-  }, [selectedTechStacks, form]);
-
-  useEffect(() => {
-    form.setValue("role", Array.from(selectedRoles));
-  }, [selectedRoles, form]);
-
   const { submitHireTalent, loading, error, success } = useHireTalent();
 
   // Reset form when submission is successful
   useEffect(() => {
     if (success) {
       form.reset();
-      setSelectedTechStacks(new Set());
-      setSelectedRoles(new Set());
     }
   }, [success, form]);
 

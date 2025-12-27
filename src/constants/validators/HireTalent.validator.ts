@@ -7,8 +7,8 @@ export const hireTalentFormSchema = z.object({
     .min(10, 'Telephone number must be at least 10 digits.'),
   email: z.string().email({ message: 'Invalid email address.' }),
   companyName: z.string().min(1, 'Company name is required.'),
-  role: z.array(z.string()).min(1, 'Role is required.'),
-  technologyStack: z.array(z.string()).min(1, 'Technology stack is required.'),
+  role: z.array(z.string()).optional().default([]),
+  technologyStack: z.array(z.string()).optional().default([]),
   // projectBudgetMin: z
   //   .string()
   //   .transform((val) => (!val ? 0 : parseFloat(val)))
