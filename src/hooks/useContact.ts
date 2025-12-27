@@ -1,6 +1,7 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { ContactFormData } from "../constants/validators/Contact.validator";
+import { emailjsConfig } from "../config/emailjs.config";
 
 export default function useContact() {
   const [loading, setLoading] = useState(false);
@@ -12,21 +13,17 @@ export default function useContact() {
     setError(null);
     setSuccess(false);
 
-    // EmailJS configuration - these should be set as environment variables
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID || "";
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID || "";
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY || "";
+    // EmailJS configuration from config file
+    const serviceId = emailjsConfig.contact.serviceId;
+    const templateId = emailjsConfig.contact.templateId;
+    const publicKey = emailjsConfig.publicKey;
 
-    if (!serviceId || !templateId || !publicKey) {
-      const missing = [];
-      if (!serviceId) missing.push("REACT_APP_EMAILJS_SERVICE_ID");
-      if (!templateId) missing.push("REACT_APP_EMAILJS_TEMPLATE_ID");
-      if (!publicKey) missing.push("REACT_APP_EMAILJS_PUBLIC_KEY");
-
+    if (!serviceId || !templateId || !publicKey || 
+        serviceId === "YOUR_SERVICE_ID_HERE" || 
+        templateId === "YOUR_TEMPLATE_ID_HERE" || 
+        publicKey === "YOUR_PUBLIC_KEY_HERE") {
       setError(
-        `EmailJS configuration is missing: ${missing.join(
-          ", "
-        )}. Please check your .env file and restart the development server.`
+        "EmailJS is not configured. Please update the EmailJS credentials in src/config/emailjs.config.ts"
       );
       setLoading(false);
       return;
